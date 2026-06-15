@@ -41,6 +41,51 @@ activities = {
     }
 }
 
+# Additional activities
+activities.update({
+    # Sports
+    "Soccer Club": {
+        "description": "Team-based soccer training and intramural matches",
+        "schedule": "Tuesdays and Thursdays, 4:00 PM - 5:30 PM",
+        "max_participants": 22,
+        "participants": ["liam@mergington.edu", "noah@mergington.edu"]
+    },
+    "Basketball Club": {
+        "description": "Basketball drills, scrimmages, and tournaments",
+        "schedule": "Wednesdays, 5:00 PM - 7:00 PM",
+        "max_participants": 15,
+        "participants": ["ava@mergington.edu", "sophia@mergington.edu"]
+    },
+
+    # Artistic
+    "Art Club": {
+        "description": "Drawing, painting, and mixed media art sessions",
+        "schedule": "Mondays, 3:30 PM - 5:00 PM",
+        "max_participants": 18,
+        "participants": ["mia@mergington.edu", "isabella@mergington.edu"]
+    },
+    "Drama Club": {
+        "description": "Acting workshops, rehearsals, and stage productions",
+        "schedule": "Fridays, 4:00 PM - 6:00 PM",
+        "max_participants": 25,
+        "participants": ["lucas@mergington.edu", "harper@mergington.edu"]
+    },
+
+    # Intellectual
+    "Debate Team": {
+        "description": "Competitive debating and public speaking practice",
+        "schedule": "Thursdays, 3:30 PM - 5:00 PM",
+        "max_participants": 16,
+        "participants": ["elijah@mergington.edu", "charlotte@mergington.edu"]
+    },
+    "Science Club": {
+        "description": "Experiments, STEM projects, and science fairs",
+        "schedule": "Wednesdays, 3:30 PM - 5:00 PM",
+        "max_participants": 20,
+        "participants": ["amelia@mergington.edu", "benjamin@mergington.edu"]
+    }
+})
+
 
 @app.get("/")
 def root():
@@ -61,7 +106,7 @@ def signup_for_activity(activity_name: str, email: str):
 
     # Get the specific activity
     activity = activities[activity_name]
-
+    
     # Add student
     activity["participants"].append(email)
     return {"message": f"Signed up {email} for {activity_name}"}
